@@ -103,6 +103,13 @@ class ConfigDict(TypedDict):
     load_external_modules: bool
     """Whether to always load external modules/packages."""
 
+    mdformat_extensions: list[str]
+    """A list of mdformat extensions to enable when formatting Markdown output.
+
+    For example, `["tables"]` to enable the `mdformat-tables` extension,
+    which properly handles escaped pipes in table cells.
+    """
+
     members: list[str] | bool | None
     """A boolean, or an explicit list of members to render.
 
@@ -265,6 +272,7 @@ default_config: ConfigDict = {
     "show_docstring_functions": True,
     "show_docstring_modules": True,
     "extensions": [],
+    "mdformat_extensions": [],
     "search_paths": [],
 }
 """Default configuration values."""
