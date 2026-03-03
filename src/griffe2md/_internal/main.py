@@ -138,6 +138,7 @@ def render_object_docs(obj: Object, config: ConfigDict | None = None, *, format_
     rendered = env.get_template(f"{obj.kind.value}.md.jinja").render(**context)
     if format_md:
         rendered = mdformat.text(rendered)
+    rendered = rendered.replace("GRIFFE_PIPE", r"\|")
     return rendered
 
 
